@@ -1,0 +1,45 @@
+---
+- name: Install XRDP-packages
+  apt:
+    name: [ 'xrdp' ]
+    state: present
+    update_cache: no
+  become: yes
+  when:
+    - "'xrdp' in services"
+
+- name: Generiere /etc/xrdp/xrdp.ini
+  template:
+    src: "xrdp.ini.j2"
+    dest: "/etc/xrdp/xrdp.ini"
+    owner: root
+    group: root
+    mode: '0644'
+  become: yes
+  when:
+    - "'xrdp' in services"
+  notify: restart xrdp
+
+- name: Generiere /etc/xrdp/sesman.ini
+  template:
+    src: "sesman.ini.j2"
+    dest: "/etc/xrdp/sesman.ini"
+    owner: root
+    group: root
+    mode: '0644'
+  become: yes
+  when:
+    - "'xrdp' in services"
+  notify: restart xrdp
+
+- name: Generiere /etc/X11/xrdp/xorg.conf
+  template:
+    src: "xorg.conf.j2"
+    dest: "/etc/X11/xrdp/xorg.conf"
+    owner: root
+    group: root
+    mode: '0644'
+  become: yes
+  when:
+    - "'xrdp' in services"
+  notify: restart xrdp

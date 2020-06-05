@@ -1,0 +1,3 @@
+---
+- name: Setup XRDP
+  include_tasks: xrdp/setup.yml
