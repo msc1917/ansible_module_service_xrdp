@@ -1,3 +1,6 @@
 ---
+- name: Install XRDP
+  include_tasks: install.yml
+  
 - name: Setup XRDP
-  include_tasks: xrdp/setup.yml
+  include_tasks: setup.yml

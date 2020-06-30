@@ -1,0 +1,9 @@
+---
+- name: Install XRDP-packages
+  apt:
+    name: [ 'xrdp' ]
+    state: present
+    update_cache: no
+  become: yes
+  when:
+    - "'xrdp' in services"

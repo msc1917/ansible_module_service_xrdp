@@ -1,13 +1,4 @@
 ---
-- name: Install XRDP-packages
-  apt:
-    name: [ 'xrdp' ]
-    state: present
-    update_cache: no
-  become: yes
-  when:
-    - "'xrdp' in services"
-
 - name: Generiere /etc/xrdp/xrdp.ini
   template:
     src: "xrdp.ini.j2"
