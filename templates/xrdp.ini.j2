@@ -183,7 +183,7 @@ tcutils=true
 [Xorg]
 name={{ xrdp.name }}
 lib=libxup.so
-username={{ default_user.xrdp_user }}
+username={{ xrdp.user }}
 password={{ xrdp.password }}
 ip={{ xrdp.ip_address }}
 port={{ xrdp.port }}
@@ -192,7 +192,7 @@ code=20
 [Xvnc]
 name=Xvnc
 lib=libvnc.so
-username={{ default_user.xrdp_user }}
+username={{ xrdp.user }}
 password={{ xrdp.password }}
 ip={{ xrdp.ip_address }}
 port=-1
